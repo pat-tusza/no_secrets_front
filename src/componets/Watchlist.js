@@ -18,7 +18,7 @@ const Watchlist = ({user}) => {
 
     if(!isLoaded) return <h2>Loading...</h2>
 
-    const displayWatch = watchedData.map((watch)=> <WatchCard key={watch.id} watch={watch} user={user} /> )
+    const displayWatch = watchedData.map((watch)=> <WatchCard key={watch.id} watch={watch} user={user} watchedData={watchedData} setWatchedData={setWatchedData}/> )
     
     return (
         <div>

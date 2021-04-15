@@ -38,7 +38,7 @@ const Detail = ({user}) => {
     const lilNas= pageDonations.response.contributors.contributor
 
     // console.log(lilNas)
-    const displayStuff = lilNas.map((attributes)=> <DonationPage key={attributes.id} attributes={attributes}/>)
+    const displayStuff = lilNas.map((attributes, i)=> <DonationPage key={i} attributes={attributes}/>)
 
     const {birthday, name, first_elected, gender, image, office, party} = pageMember[0]
    

@@ -4,6 +4,7 @@ import Login from './Login'
 import { Switch, Route, useHistory } from "react-router-dom"
 import Detail from "./Detail"
 import Watchlist from './Watchlist'
+import Compare from './Compare';
 
 
 function App() {
@@ -11,6 +12,33 @@ function App() {
     username: 'Guest',
     id: 'Guest'
   })
+
+  const [compareMem, setCompareMem] = useState({
+    member1: {
+      birthdate: "",
+      cid: "",
+      first_elected: "",
+      gender: "",
+      id: 0,
+      image: "",
+      name: "",
+      office: "",
+      party: ""
+    },
+    member2: {
+      birthdate: "",
+      cid: "",
+      first_elected: "",
+      gender: "",
+      id: 0,
+      image: "",
+      name: "",
+      office: "",
+      party: ""
+    }
+  })
+
+  const [noNoWord, setNoNoWord] = useState(true)
   
   return (
     <div>
@@ -20,14 +48,24 @@ function App() {
           <Login 
           user={user}
           setUser={setUser}
+          setNoNoWord={setNoNoWord}
+          noNoWord={noNoWord}
           />
-          <InfoContainer user={user} />
+          <InfoContainer 
+          user={user}
+          noNoWord={noNoWord}
+          setCompareMem={setCompareMem}
+          compareMem={compareMem}
+          />
         </Route>
         <Route exact path="/member/:cid">
           <Detail user={user} />
         </Route>
         <Route exact path="/watchlist"> 
           <Watchlist user={user} />
+        </Route>
+        <Route exact path="/compare">
+          <Compare compareMem={compareMem} />
         </Route>
         
       </Switch>

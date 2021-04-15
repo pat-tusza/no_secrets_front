@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom"
 
-const Login = ({setUser, user}) => {
+const Login = ({setUser, user, setNoNoWord, noNoWord}) => {
     
     const [formInfo, setFormInfo] = useState('')
 
@@ -21,6 +21,7 @@ const Login = ({setUser, user}) => {
                 handleCreateUser(formInfo)
             }
         })
+        setNoNoWord(!noNoWord)
     }
 
     function handleCreateUser(name){
@@ -41,6 +42,7 @@ const Login = ({setUser, user}) => {
 
     function handleLogout(){
         setUser({...user, username: 'Guest', id: 'Guest'})
+        setNoNoWord(!noNoWord)
     }
     console.log(user)
     
