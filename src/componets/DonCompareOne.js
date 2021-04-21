@@ -7,7 +7,7 @@ const DonCompareOne = ({attributesOne}) => {
     return (
         <div>
              <ul>
-                <li>
+                <li id='hidethis'>
                 Organization Name: {org_name}{' '}
                 Amount from PACs: {pacs} {' '}
                 Indivdual Contributions: {indivs}{' '}

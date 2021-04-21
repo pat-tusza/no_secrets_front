@@ -6,7 +6,7 @@ const DonCompareTwo = ({attributesTwo}) => {
     
     return (
         <div>
-             <ul>
+             <ul className='ul-list'>
                 <li>
                 Organization Name: {org_name}{' '}
                 Amount from PACs: {pacs} {' '}

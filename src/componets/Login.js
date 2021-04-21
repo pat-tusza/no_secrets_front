@@ -11,17 +11,21 @@ const Login = ({setUser, user, setNoNoWord, noNoWord}) => {
 
     const handleSub = e => {
         e.preventDefault()
-        fetch('http://127.0.0.1:3000/users')
-        .then(r => r.json())
-        .then(users => {
-            let foundUser = users.find(users => users.username === formInfo)
-            if (foundUser){
-                setUser({...user, username: foundUser.username, id: foundUser.id})
-            }else{
-                handleCreateUser(formInfo)
-            }
-        })
-        setNoNoWord(!noNoWord)
+        // if(formInfo.toLowerCase === "guest"){
+        //     alert("Your Username cannot be Guest!")
+        // }else{
+            fetch('http://127.0.0.1:3000/users')
+            .then(r => r.json())
+            .then(users => {
+                let foundUser = users.find(users => users.username === formInfo)
+                if (foundUser){
+                    setUser({...user, username: foundUser.username, id: foundUser.id})
+                }else{
+                    handleCreateUser(formInfo)
+                }
+            })
+            setNoNoWord(!noNoWord)
+        
     }
 
     function handleCreateUser(name){

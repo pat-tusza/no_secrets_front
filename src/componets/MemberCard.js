@@ -52,20 +52,29 @@ const MemberCard = ({member, user, noNoWord, compareMem, setCompareMem, testComp
                 })
         }
     }
-
+    // #c1e4f7 lighter blue color
+    // #99d2f2 slightly darker blue
+    // #4682b4 steel blue CSS
     return (
-        <div>
-            <ul>
-            <img src= "" alt= ""></img>
-            {member.name} {' '}
-            {member.party} {' '}
-            {member.office} {' '}
-            <input type="checkbox" onChange={handleBut} value= "1" name="memberId1"></input>
-            <input type="checkbox" onChange={handleBut} value= "2" name="memberId2"></input>
-            </ul>
-            {noNoWord? null : <button onClick={handleClick}>Add to Watch List</button>}
-            {/* <button>Go to detail page</button> */}
-            <Link to={link}>Detail Page</Link>
+        <div className="card-div">
+            
+            <div className="card-info">
+                <img src= {member.image} alt= {member.name}></img> {' '}
+                <Link to={link}>{member.name}</Link> {' '}
+                <span> {' '}
+                    Political Party:{' '}{member.party} {' '}
+                </span>
+                Congressional District:{" "}{member.office} {' '}
+                <span>
+                    Compare: 
+                    <input type="checkbox" onChange={handleBut} value= "1" name="memberId1"></input>
+                    <input type="checkbox" onChange={handleBut} value= "2" name="memberId2"></input>
+                </span>
+                
+                {noNoWord? null : <button onClick={handleClick}>Add to Watch List</button>}
+                {/* <button>Go to detail page</button> */}
+                {/* <Link to={link}>Detail Page</Link> */}
+            </div>
         </div>
     )
 }

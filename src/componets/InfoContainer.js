@@ -31,11 +31,13 @@ const InfoContainer = ({user, noNoWord, setCompareMem, compareMem}) => {
 
     return (
         <div>
+            <button onClick={compareClick}>Compare</button>
             <SearchBar 
             setSearch={setSearch}
             search={search}/>
-            <button onClick={compareClick}>Compare</button>
+            <div className="infogrid">
             {toDisplay}
+            </div>
         </div>
     )
 }

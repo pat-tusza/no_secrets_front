@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import DonCompareOne from './DonCompareOne'
 import DonCompareTwo from './DonCompareTwo'
+import { Link } from "react-router-dom"
+import {useHistory} from "react-router-dom"
 
 const Compare = ({compareMem}) => {
     
@@ -8,6 +10,7 @@ const Compare = ({compareMem}) => {
     const [mem2Don, setMem2Don] = useState(null)
     const [mem1Loaded, setMem1Load] = useState(false)
     const [mem2Loaded, setMem2Load] = useState(false)
+    const history = useHistory()
 
     
     useEffect(() => {
@@ -25,6 +28,11 @@ const Compare = ({compareMem}) => {
                 })        
     },[])
     
+    function poop(){
+        history.push('/home')
+        console.log(history)
+    }
+    
     if(!mem2Loaded || !mem1Loaded) return <h2>Loading...</h2>
 
     
@@ -34,30 +42,34 @@ const Compare = ({compareMem}) => {
     const displayOne = daBaby.map((attributes, i)=> <DonCompareOne key={i} attributesOne={attributes}/>)
     const displayTwo = lilBaby.map((attributes, i)=> <DonCompareTwo key={i} attributesTwo={attributes}/>)
     console.log(daBaby, lilBaby)
-    
+
     return (
-        <div>
-            <div>
-                <img src= {compareMem.member1.image} alt={compareMem.member1.name}/>
-                <p>{compareMem.member1.name}</p>
-                <p>Gender: {compareMem.member1.gender}</p>
-                <p>Birtdhay: {compareMem.member1.birthday}</p>
-                <p>Party: {compareMem.member1.party}</p>
-                <p>Office: {compareMem.member1.office}</p>
-                <p>Year First Elected: {compareMem.member1.first_elected}</p>
+       <> 
+        <Link to='/home'>Home Screen</Link>
+        <div className='row'>
+            <div className='column compare-card'>
+                <img className='compare-img' src= {compareMem.member1.image} alt={compareMem.member1.name}/>
+                <p className= 'bold detail-name'>{compareMem.member1.name}</p>
+                <p><span className="bold">Gender:</span> {compareMem.member1.gender}</p>
+                <p><span className="bold">Birtdhay: </span> {compareMem.member1.birthday}</p>
+                <p><span className="bold">Party: </span> {compareMem.member1.party}</p>
+                <p><span className="bold">Office: </span>{compareMem.member1.office}</p>
+                <p><span className="bold">Year First Elected: </span> {compareMem.member1.first_elected}</p>
                 {displayOne}
             </div>
-            <div>
-            <img src= {compareMem.member2.image} alt={compareMem.member2.name}/>
-                <p>{compareMem.member2.name}</p>
-                <p>Gender: {compareMem.member2.gender}</p>
-                <p>Birtdhay: {compareMem.member2.birthday}</p>
-                <p>Party: {compareMem.member2.party}</p>
-                <p>Office: {compareMem.member2.office}</p>
-                <p>Year First Elected: {compareMem.member2.first_elected}</p>
+            <div className='column compare-card'>
+            <img className='compare-img' src= {compareMem.member2.image} alt={compareMem.member2.name}/>
+                <p className= 'bold detail-name' >{compareMem.member2.name}</p>
+                <p><span className="bold">Gender:</span> {compareMem.member2.gender}</p>
+                <p><span className="bold">Birtdhay: </span> {compareMem.member2.birthday}</p>
+                <p><span className="bold">Party: </span> {compareMem.member2.party}</p>
+                <p><span className="bold">Office: </span> {compareMem.member2.office}</p>
+                <p><span className="bold">Year First Elected: </span> {compareMem.member2.first_elected}</p>
                 {displayTwo}
             </div>
+          
         </div>
+        </>
     )
 }
 

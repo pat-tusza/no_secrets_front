@@ -65,14 +65,13 @@ const WatchCard = ({watch, user, watchedData, setWatchedData}) => {
         <div>
             <ul>
             <img src= "" alt= ""></img>
-            {watch.member.name} {' '}
+            <Link to={link}>{watch.member.name}</Link> {' '}
             {watch.member.party} {' '}
             {watch.member.office} {' '}
             Notes: {currentComment} {' '}
             </ul>
             <button onClick={handleDelete}>Remove from WatchList</button> {' '} 
             {isClicked? editCommentForm : <button onClick={handleClick}> Edit Note</button>}
-            <Link to={link}>Details</Link>
             
         </div>
     )

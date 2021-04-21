@@ -40,17 +40,17 @@ const Detail = ({user}) => {
     // console.log(lilNas)
     const displayStuff = lilNas.map((attributes, i)=> <DonationPage key={i} attributes={attributes}/>)
 
-    const {birthday, name, first_elected, gender, image, office, party} = pageMember[0]
+    const {birthdate, name, first_elected, gender, image, office, party} = pageMember[0]
    
     return (
-        <div>
+        <div className= 'detail-div'>
             <img src= {image} alt={name}/>
-            <p>{name}</p>
-            <p>Gender: {gender}</p>
-            <p>Birtdhay: {birthday}</p>
-            <p>Party: {party}</p>
-            <p>Office: {office}</p>
-            <p>Year First Elected: {first_elected}</p>
+            <p className= 'bold detail-name'>{name}</p>
+            <p><span className="bold">Gender:</span> {gender}</p>
+            <p><span className="bold">Birthday:</span> {birthdate}</p>
+            <p><span className="bold">Party: </span>{party}</p>
+            <p><span className="bold">Office: </span>{office}</p>
+            <p><span className="bold">Year First Elected: </span>{first_elected}</p>
             {displayStuff}
             <Link to='/home'>Home</Link>
         </div>

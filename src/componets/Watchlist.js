@@ -15,14 +15,16 @@ const Watchlist = ({user}) => {
             setIsLoaded(true)
         })
     },[])
-
+    
     if(!isLoaded) return <h2>Loading...</h2>
-
+    
+    console.log(watchedData)
     const displayWatch = watchedData.map((watch)=> <WatchCard key={watch.id} watch={watch} user={user} watchedData={watchedData} setWatchedData={setWatchedData}/> )
     
     return (
         <div>
             {displayWatch}
+            <br></br>
             <Link to= '/home'>Home Page</Link>
         </div>
     )
