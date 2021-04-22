@@ -35,6 +35,7 @@ code {
 
 .card-div img{
   height: 13em;
+  object-fit: cover;
 }
 
 .card-div{
@@ -127,3 +128,8 @@ code {
   padding: 2em;
   margin: 1em;
 } */
+
+.center{
+  text-align: center;
+  font-size: 35px
+}
